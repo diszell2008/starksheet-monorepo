@@ -113,13 +113,11 @@ async def get_starknet_account(
         )
 
     contract_class = await RPC_CLIENT.get_class_at(address)
-    cairo_version = 1 if isinstance(contract_class, SierraContractClass) else 0
     return Account(
         address=address,
         client=RPC_CLIENT,
         chain=NETWORK["chain_id"],
         key_pair=key_pair,
-        cairo_version=cairo_version,
     )
 
 
